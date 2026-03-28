@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Tip Calculator </title>
+
+    <link rel="stylesheet" href="mystyles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+
+</head>
+<body>
+
+<main class="card" role="main" aria-label="Tip Calculator">
+
+ 
+  <header class="header">
+    <p class="header-label">Est. 2026 &nbsp;</p>
+    <h1 class="header-title">Tip <span>Calculator</span></h1>
+  </header>
+
+  <div class="body">
+
+    <div class="input-group">
+      <label class="input-label" for="bill-input">Bill Amount</label>
+      <div class="input-wrapper">
+        <span class="input-prefix" aria-hidden="true">$</span>
+        <input
+          type="number"
+          id="bill-input"
+          placeholder="0.00"
+          min="0"
+          step="0.01"
+          inputmode="decimal"
+          aria-label="Enter bill amount"
+        />
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label class="input-label">Select Tip</label>
+      <div class="tip-grid" role="group" aria-label="Tip percentage options">
+        <button class="tip-btn" data-tip="10" aria-pressed="false">10%</button>
+        <button class="tip-btn" data-tip="15" aria-pressed="false">15%</button>
+        <button class="tip-btn active" data-tip="18" aria-pressed="true">18%</button>
+        <button class="tip-btn" data-tip="20" aria-pressed="false">20%</button>
+
+        <div class="tip-btn custom-wrap" id="custom-wrap">
+          <input
+            type="number"
+            id="custom-tip"
+            placeholder="?%"
+            min="0"
+            max="100"
+            inputmode="numeric"
+            aria-label="Enter custom tip percentage"
+          />
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <div class="guests-row">
+      <span class="guests-label">Split between</span>
+      <div class="stepper" role="group" aria-label="Number of guests">
+        <button class="stepper-btn" id="guests-down" aria-label="Decrease guests" aria-controls="guests-count" disabled>−</button>
+        <span class="stepper-value" id="guests-count" aria-live="polite" role="status">1</span>
+        <button class="stepper-btn" id="guests-up" aria-label="Increase guests" aria-controls="guests-count">+</button>
+      </div>
+    </div>
+
+    <hr class="divider" aria-hidden="true" />
+    <section class="results" aria-live="polite" aria-label="Calculated totals">
+      <div class="result-row">
+        <span class="result-label">Tip Amount</span>
+        <span class="result-value" id="tip-amount">$0.00</span>
+      </div>
+      <hr class="results-divider" aria-hidden="true" />
+      <div class="result-row">
+        <span class="result-label">Total</span>
+        <span class="result-value" id="total-amount">$0.00</span>
+      </div>
+      <hr class="results-divider" aria-hidden="true" />
+      <div class="result-row primary">
+        <span class="result-label">Per Person</span>
+        <span class="result-value" id="per-person">$0.00</span>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <button class="reset-btn" id="reset-btn" aria-label="Reset all values">Reset</button>
+  </footer>
+</main>
+
+<script src="./cal.js"></script>
+</body>
+</html>
